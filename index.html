@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ROSE CAFE | مطعم بنات</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+body {
+    background: #fff7fa;
+    color: #3b252d;
+}
+
+/* NAVBAR */
+
+nav {
+    height: 75px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 20px rgba(0,0,0,.08);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #d45d83;
+}
+
+.logo span {
+    color: #ef9eb8;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #4b343c;
+    transition: .3s;
+}
+
+nav ul li a:hover {
+    color: #d45d83;
+}
+
+.cart {
+    font-size: 24px;
+    cursor: pointer;
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -9px;
+    right: -10px;
+    background: #d45d83;
+    color: white;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* HERO */
+
+.hero {
+    min-height: 570px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 8%;
+    background: linear-gradient(135deg, #ffe6ef, #fff8fb);
+}
+
+.hero-text {
+    max-width: 520px;
+}
+
+.hero-text small {
+    color: #d45d83;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.hero-text h1 {
+    font-size: 58px;
+    margin: 18px 0;
+    line-height: 1.15;
+}
+
+.hero-text p {
+    color: #80656e;
+    font-size: 18px;
+    line-height: 1.9;
+    margin-bottom: 25px;
+}
+
+.hero-btn {
+    border: none;
+    background: #d45d83;
+    color: white;
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.hero-btn:hover {
+    background: #b9466a;
+    transform: translateY(-3px);
+}
+
+.hero-image {
+    width: 45%;
+    max-width: 520px;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(190,90,120,.2);
+}
+
+.hero-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+
+/* CATEGORIES */
+
+.categories {
+    padding: 70px 8%;
+    text-align: center;
+}
+
+.title {
+    font-size: 35px;
+    margin-bottom: 40px;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.category {
+    background: white;
+    padding: 30px 15px;
+    border-radius: 20px;
+    border: 1px solid #f2dce4;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.category:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,.08);
+}
+
+.category .icon {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.category h3 {
+    margin-bottom: 8px;
+}
+
+.category p {
+    color: #91747e;
+}
+
+
+/* MENU */
+
+.menu {
+    padding: 70px 8%;
+}
+
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.search {
+    width: 270px;
+    padding: 14px 20px;
+    border: 1px solid #e8ccd6;
+    border-radius: 30px;
+    outline: none;
+    background: white;
+}
+
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.food {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,.06);
+    transition: .3s;
+}
+
+.food:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,.1);
+}
+
+.food-image {
+    height: 230px;
+    overflow: hidden;
+}
+
+.food-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .5s;
+}
+
+.food:hover img {
+    transform: scale(1.08);
+}
+
+.food-info {
+    padding: 18px;
+}
+
+.food-info h3 {
+    margin-bottom: 8px;
+    font-size: 19px;
+}
+
+.food-info p {
+    color: #8c737c;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 45px;
+}
+
+.price {
+    color: #d45d83;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 14px 0;
+}
+
+.add {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    background: #3b252d;
+    color: white;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.add:hover {
+    background: #d45d83;
+}
+
+
+/* OFFER */
+
+.offer {
+    margin: 30px 8% 70px;
+    padding: 60px 30px;
+    text-align: center;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #f6c4d3, #ffe9f0);
+}
+
+.offer h2 {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.offer p {
+    color: #75515d;
+    margin-bottom: 25px;
+}
+
+
+/* FOOTER */
+
+footer {
+    background: #3b252d;
+    color: white;
+    padding: 55px 8%;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+footer h3 {
+    color: #f3a9bf;
+    margin-bottom: 18px;
+}
+
+footer p {
+    color: #ddd;
+    line-height: 2;
+}
+
+.copy {
+    border-top: 1px solid #61464f;
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 35px;
+    color: #c9b9be;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width: 1000px) {
+
+    .food-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .hero-image {
+        width: 80%;
+    }
+}
+
+@media(max-width: 600px) {
+
+    nav ul {
+        display: none;
+    }
+
+    .hero-text h1 {
+        font-size: 40px;
+    }
+
+    .hero-image {
+        width: 100%;
+    }
+
+    .hero-image img {
+        height: 350px;
+    }
+
+    .food-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .search {
+        width: 100%;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo">
+        ROSE<span>♡</span>CAFE
+    </div>
+
+    <ul>
+        <li><a href="#home">الرئيسية</a></li>
+        <li><a href="#categories">الأقسام</a></li>
+        <li><a href="#menu">المنيو</a></li>
+        <li><a href="#offers">العروض</a></li>
+        <li><a href="#contact">تواصل معنا</a></li>
+    </ul>
+
+    <div class="cart">
+        🛍️
+        <div class="cart-count" id="cartCount">0</div>
+    </div>
+
+</nav>
+
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-text">
+
+        <small>WELCOME TO ROSE CAFE 🌸</small>
+
+        <h1>
+            أكلك المفضل<br>
+            في مكانك المفضل 💕
+        </h1>
+
+        <p>
+            مطعم مخصص للبنات، جمعنا لكِ أشهى الأكلات
+            والمشروبات والحلويات في مكان واحد.
+        </p>
+
+        <button class="hero-btn"
+        onclick="document.getElementById('menu').scrollIntoView()">
+            شوفي المنيو 🍽️
+        </button>
+
+    </div>
+
+
+    <div class="hero-image">
+
+        <img
+        src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1000&q=80"
+        alt="Food">
+
+    </div>
+
+</section>
+
+
+
+<!-- CATEGORIES -->
+
+<section class="categories" id="categories">
+
+    <h2 class="title">
+        اختاري اللي نفسك فيه 💗
+    </h2>
+
+    <div class="category-grid">
+
+        <div class="category">
+            <div class="icon">🍔</div>
+            <h3>برجر</h3>
+            <p>برجر طازج ولذيذ</p>
+        </div>
+
+        <div class="category">
+            <div class="icon">🍕</div>
+            <h3>بيتزا</h3>
+            <p>بيتزا بأحلى النكهات</p>
+        </div>
+
+        <div class="category">
+            <div class="icon">🍝</div>
+            <h3>باستا</h3>
+            <p>مكرونة بصوصات مختلفة</p>
+        </div>
+
+        <div class="category">
+            <div class="icon">🍰</div>
+            <h3>حلويات</h3>
+            <p>حلويات ومشروبات</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- MENU -->
+
+<section class="menu" id="menu">
+
+    <div class="menu-header">
+
+        <h2 class="title">
+            منيو ROSE CAFE
+        </h2>
+
+        <input
+        class="search"
+        id="search"
+        type="text"
+        placeholder="🔍 ابحثي عن أكلك..."
+        onkeyup="searchFood()">
+
+    </div>
+
+
+    <div class="food-grid" id="foodGrid">
+
+
+        <!-- FOOD 1 -->
+
+        <div class="food">
+
+            <div class="food-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80">
+
+            </div>
+
+            <div class="food-info">
+
+                <h3>Classic Burger 🍔</h3>
+
+                <p>
+                    برجر لحم مع جبنة وخس وطماطم وصوص خاص.
+                </p>
+
+                <div class="price">
+                    180 جنيه
+                </div>
+
+                <button class="add"
+                onclick="addToCart('Classic Burger')">
+                    إضافة للسلة 🛍️
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- FOOD 2 -->
+
+        <div class="food">
+
+            <div class="food-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=800&q=80">
+
+            </div>
+
+            <div class="food-info">
+
+                <h3>Cheese Pizza 🍕</h3>
+
+                <p>
+                    بيتزا بالجبنة والموتزاريلا وصوص الطماطم.
+                </p>
+
+                <div class="price">
+                    220 جنيه
+                </div>
+
+                <button class="add"
+                onclick="addToCart('Cheese Pizza')">
+                    إضافة للسلة 🛍️
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- FOOD 3 -->
+
+        <div class="food">
+
+            <div class="food-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=80">
+
+            </div>
+
+            <div class="food-info">
+
+                <h3>Chicken Pasta 🍝</h3>
+
+                <p>
+                    باستا بالدجاج والكريمة وصوص البارميزان.
+                </p>
+
+                <div class="price">
+                    195 جنيه
+                </div>
+
+                <button class="add"
+                onclick="addToCart('Chicken Pasta')">
+                    إضافة للسلة 🛍️
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- FOOD 4 -->
+
+        <div class="food">
+
+            <div class="food-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=800&q=80">
+
+            </div>
+
+            <div class="food-info">
+
+                <h3>Chocolate Cake 🍰</h3>
+
+                <p>
+                    كيك شوكولاتة بصوص الشوكولاتة الغني.
+                </p>
+
+                <div class="price">
+                    120 جنيه
+                </div>
+
+                <button class="add"
+                onclick="addToCart('Chocolate Cake')">
+                    إضافة للسلة 🛍️
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- FOOD 5 -->
+
+        <div class="food">
+
+            <div class="food-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=800&q=80">
+
+            </div>
+
+            <div class="food-info">
+
+                <h3>Donuts 🍩</h3>
+
+                <p>
+                    دونات طرية مع الشوكولاتة والتزيين.
+                </p>
+
+                <div class="price">
+                    90 جنيه
+                </div>
+
+                <button class="add"
+                onclick="addToCart('Donuts')">
+                    إضافة للسلة 🛍️
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- FOOD 6 -->
+
+        <div class="food">
+
+            <div class="food-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80">
+
+            </div>
+
+            <div class="food-info">
+
+                <h3>Strawberry Milkshake 🍓</h3>
+
+                <p>
+                    ميلك شيك فراولة كريمي ومنعش.
+                </p>
+
+                <div class="price">
+                    85 جنيه
+                </div>
+
+                <button class="add"
+                onclick="addToCart('Strawberry Milkshake')">
+                    إضافة للسلة 🛍️
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- FOOD 7 -->
+
+        <div class="food">
+
+            <div class="food-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80">
+
+            </div>
+
+            <div class="food-info">
+
+                <h3>Coffee ☕</h3>
+
+                <p>
+                    قهوة ساخنة بطعم غني ومميز.
+                </p>
+
+                <div class="price">
+                    75 جنيه
+                </div>
+
+                <button class="add"
+                onclick="addToCart('Coffee')">
+                    إضافة للسلة 🛍️
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- FOOD 8 -->
+
+        <div class="food">
+
+            <div class="food-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80">
+
+            </div>
+
+            <div class="food-info">
+
+                <h3>Red Velvet ❤️</h3>
+
+                <p>
+                    ريد فيلفت كيك بطبقات كريمية.
+                </p>
+
+                <div class="price">
+                    135 جنيه
+                </div>
+
+                <button class="add"
+                onclick="addToCart('Red Velvet')">
+                    إضافة للسلة 🛍️
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- OFFER -->
+
+<section class="offer" id="offers">
+
+    <h2>
+        💗 عرض البنات 💗
+    </h2>
+
+    <p>
+        اطلبوا 3 أطباق واحصلوا على مشروب مجاني.
+    </p>
+
+    <button class="hero-btn"
+    onclick="document.getElementById('menu').scrollIntoView()">
+        اطلبي الآن 🍽️
+    </button>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer id="contact">
+
+    <div class="footer-grid">
+
+        <div>
+            <h3>ROSE CAFE 🌸</h3>
+
+            <p>
+                مكان مميز للبنات للاستمتاع
+                بالأكل والحلويات والمشروبات.
+            </p>
+        </div>
+
+
+        <div>
+            <h3>أوقات العمل</h3>
+
+            <p>
+                السبت - الخميس<br>
+                10:00 صباحاً - 12:00 مساءً
+            </p>
+        </div>
+
+
+        <div>
+            <h3>تواصل معنا</h3>
+
+            <p>
+                📞 01000000000<br>
+                📧 info@rosecafe.com<br>
+                📍 القاهرة - مصر
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="copy">
+        © 2026 ROSE CAFE - جميع الحقوق محفوظة
+    </div>
+
+</footer>
+
+
+
+<script>
+
+let cartCount = 0;
+
+
+/* ADD TO CART */
+
+function addToCart(foodName) {
+
+    cartCount++;
+
+    document.getElementById("cartCount").innerText = cartCount;
+
+    alert(
+        "💗 تم إضافة " +
+        foodName +
+        " إلى السلة"
+    );
+}
+
+
+/* SEARCH */
+
+function searchFood() {
+
+    let value =
+        document.getElementById("search")
+        .value
+        .toLowerCase();
+
+    let foods =
+        document.querySelectorAll(".food");
+
+    foods.forEach(food => {
+
+        let name =
+            food.querySelector("h3")
+            .innerText
+            .toLowerCase();
+
+        if(name.includes(value)) {
+
+            food.style.display = "block";
+
+        } else {
+
+            food.style.display = "none";
+
+        }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
